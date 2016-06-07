@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+        body {
+            font-size: 10pt;
+        }
+
+        .tbl_items {
+            width: 100%;
+        }
+
+            .tbl_items tr td {
+                border: 1px solid grey;
+                border-radius:5px;
+                padding: 3px;
+            }
+
+        #list {
+            cursor: pointer;
+            text-align: center;
+            padding: 3px 3px;
+            font-family: sans-serif;
+            margin-top: 1px;
+        }
+
+        .todo_item {
+            width: 100%;
+        }
+        .btn {
+            color: white;
+            background-color: darkgreen;
+            margin: 5px;
+            border-radius: 4px;
+            box-shadow: 3px 3px 3px 1px rgba(220,220,220,1);
+            cursor: pointer;
+            text-align: center;
+            padding: 3px 3px;
+            width: 100px;
+        }
+        .btn:hover {
+            box-shadow:none;
+        }
+
+        .btn.todo_delete {
+            color: white;
+            background-color: red;
+        }
+        
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script src="showlist.js"></script>
+</head>
+<body style="width:500px">
+    <h3 style="text-align:center">Todo List(s)</h3>
+    <table>
+        <tr>
+            <td>Choose a list</td>
+            <td><select id="ddLists"></select></td>
+        </tr>
+    </table>
+    <hr />
+    <div id="list"></div>
+
+    <hr />
+    <h3>Add To Do Item</h3>
+    <table>
+        <tr>
+            <td><input type="text" id="newItem" /></td>
+            <td><div id="btnNewItem" class="btn">Add</div></td>
+        </tr>
+    </table>
+    <hr />
+    <h3>Add List</h3>
+    <table>
+        <tr>
+            <td><input type="text" id="newList" /></td>
+            <td><div id="btnNewList" class="btn">Add</div></td>
+        </tr>
+    </table>
+</body>
+</html>
