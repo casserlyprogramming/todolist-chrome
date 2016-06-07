@@ -49,7 +49,7 @@ function removeItem(id) {
     // Get the list
     chrome.storage.sync.get("todos", function (items) {
         var theList = items.todos;
-        theList.splice(id);
+        theList.splice(id, 1);
         var json = {};
         json["todos"] = theList;
         // Save it using the Chrome extension storage API.
