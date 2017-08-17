@@ -4,9 +4,6 @@ function click() {
         // Notify that we saved.
         message('Settings saved');
     });
-	getCurrentTabUrl(function(tab){
-		chrome.tabs.update(tab.id, {url: "http://dev.unify.icas.com/?usr=" + $("#user").val() + "&pwd=axnx4r4bfw"});
-	});
 }
 
 function addList() {
