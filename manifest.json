@@ -4,7 +4,7 @@
   "name": "Todo List",
   "description": "Show Todo List",
   "version": "1.0",  
-  "permissions": [ "storage"],
+  "permissions": ["storage"],
   "browser_action": {
       "default_title": "Todo List",
 	  "default_icon": "icon.png",

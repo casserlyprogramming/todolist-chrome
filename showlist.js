@@ -1,6 +1,6 @@
 function click() {
     // Save it using the Chrome extension storage API.
-    chrome.storage.sync.set({ 'value': theValue }, function () {
+    browser.storage.sync.set({ 'value': theValue }, function () {
         // Notify that we saved.
         message('Settings saved');
     });
@@ -8,7 +8,7 @@ function click() {
 
 function addList() {
     // Get the list
-    chrome.storage.sync.get("lists", function (items) {
+    browser.storage.sync.get("lists", function (items) {
         var theList = items.lists;
         if (theList == undefined) {
             theList = [];
@@ -17,7 +17,7 @@ function addList() {
         var json = {};
         json["lists"] = theList;
         // Save it using the Chrome extension storage API.
-        chrome.storage.sync.set(json, function () {
+        browser.storage.sync.set(json, function () {
             refreshLists();
             $("#newList").val("");
         });
@@ -26,7 +26,7 @@ function addList() {
 
 function addItem() {
     // Get the list
-    chrome.storage.sync.get("todos", function (items) {
+    browser.storage.sync.get("todos", function (items) {
         var theList = items.todos;
         if (theList == undefined) {
             theList = [];
@@ -35,7 +35,7 @@ function addItem() {
         var json = {};
         json["todos"] = theList;
         // Save it using the Chrome extension storage API.
-        chrome.storage.sync.set(json, function () {
+        browser.storage.sync.set(json, function () {
             refresh();
             $("#newItem").val("");
         });
@@ -44,13 +44,13 @@ function addItem() {
 
 function removeItem(id) {
     // Get the list
-    chrome.storage.sync.get("todos", function (items) {
+    browser.storage.sync.get("todos", function (items) {
         var theList = items.todos;
         theList.splice(id, 1);
         var json = {};
         json["todos"] = theList;
         // Save it using the Chrome extension storage API.
-        chrome.storage.sync.set(json, function () {
+        browser.storage.sync.set(json, function () {
             refresh();
         });
     });
@@ -63,7 +63,7 @@ function refreshLists() {
         select.options[i] = null;
     }
 
-    chrome.storage.sync.get("lists", function (items) {
+    browser.storage.sync.get("lists", function (items) {
 
         if (items.lists != undefined) {
             for (var i = 0; i < items.lists.length; i++) {
@@ -78,7 +78,7 @@ function refreshLists() {
 function refresh() {
     // Get the list
     document.getElementById("list").innerHTML = "";
-    chrome.storage.sync.get("todos", function (items) {
+    browser.storage.sync.get("todos", function (items) {
         if (items.todos == undefined) {
             html = "No Items - Add some below";
             return;
